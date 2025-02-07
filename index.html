@@ -1,25 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="theme-light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+    <link rel="stylesheet" href="Style.css">
+    <script src="https://kit.fontawesome.com/5fa0058b85.js" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
     <title>Lebron</title>
 </head>
 <body>
-    <style>
-        body{
-            height: 100vh;
-            width: 100vw;
-            margin: 0;
-            padding: 0;
-        }
-    </style>
+    <i id="måne" class="fa-solid fa-moon fa-4x" onclick="ToggleThemeD()"></i>
+    <i id="sol" class="fa-solid fa-sun fa-4x" onclick="ToggleThemeL()"></i>
     <nav class="is-flex is-justify-content-center">
         <ul>
-            <li><a href="LeClicker.html" class="button is-link">LeClicker</a></li>
-            <li><a href="LeForm.html" class="button is-link">LeForm</a></li>
+            <li><a href="index.html" class="button is-link is-large is-inverted">Lebron</a></li>
+            <li><a href="LeClicker.html" class="button is-link is-large">LeClicker</a></li>
+            <li><a href="LeForm.html" class="button is-link is-large">LeForm</a></li>
+            <li><a href="LeStats.html" class="button is-link is-large">LeStats</a></li>
         </ul>
     </nav>
+
+    <div id="Lebron">
+        <img src="img/Lebron.png" alt="LeBron!">
+    </div>
 </body>
 </html>

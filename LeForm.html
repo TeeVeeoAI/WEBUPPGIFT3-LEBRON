@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="theme-dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="Style.css">
+    <title>LeForm</title>
 </head>
 <body>
     <style>
@@ -14,48 +15,44 @@
             margin: 0;
             padding: 0;
         }
+        nav li{
+            float: left;
+        }
     </style>
     <nav class="is-flex is-justify-content-center">
         <ul>
-            <li><a href="LeClicker.html" class="button is-link">LeClicker</a></li>
-            <li><a href="index.html" class="button is-link">Lebron</a></li>
+            <li><a href="index.html" class="button is-link is-large">Lebron</a></li>
+            <li><a href="LeClicker.html" class="button is-link is-large">LeClicker</a></li>
+            <li><a href="LeForm.html" class="button is-link is-large is-inverted">LeForm</a></li>
+            <li><a href="LeStats.html" class="button is-link is-large">LeStats</a></li>
         </ul>
     </nav>
-    <div>
+    
+    <form name="form" method="post" action="https://formsubmit.co/tosi07001@utb.vaxjo.se">
         <div class="field">
         <label class="label">Name</label>
         <div class="control">
-            <input class="input" type="text" placeholder="Text input">
+            <input name="name" class="input" type="text" placeholder="Text input">
         </div>
         </div>
         
         <div class="field">
         <label class="label">Email</label>
         <div class="control has-icons-left has-icons-right">
-            <input class="input is-danger" type="email" placeholder="Email input" value="hello@">
+            <input name="epost" class="input" type="email" placeholder="Email input" value="hello@">
             <span class="icon is-small is-left">
             <i class="fas fa-envelope"></i>
             </span>
             <span class="icon is-small is-right">
             <i class="fas fa-exclamation-triangle"></i>
             </span>
-        
-        <div class="field">
-        <label class="label">Subject</label>
-        <div class="control">
-            <div class="select">
-            <select>
-                <option>Select dropdown</option>
-                <option>With options</option>
-            </select>
-            </div>
         </div>
         </div>
         
         <div class="field">
         <label class="label">Message</label>
         <div class="control">
-            <textarea class="textarea" placeholder="Textarea"></textarea>
+            <textarea name="subject" class="textarea" placeholder="Textarea"></textarea>
         </div>
         </div>
         
@@ -68,27 +65,11 @@
         </div>
         </div>
         
-        <div class="field">
-        <div class="control">
-            <label class="radio">
-            <input type="radio" name="question">
-            Yes
-            </label>
-            <label class="radio">
-            <input type="radio" name="question">
-            No
-            </label>
-        </div>
-        </div>
-        
         <div class="field is-grouped">
         <div class="control">
-            <button class="button is-link">Submit</button>
-        </div>
-        <div class="control">
-            <button class="button is-link is-light">Cancel</button>
+            <button type="submit" class="button is-link">Submit</button>
         </div>
         </div>
-    </div>
+    </form>
 </body>
 </html>
