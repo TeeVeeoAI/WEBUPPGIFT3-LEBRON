@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="theme-light">
+<html lang="en" >
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,19 +10,34 @@
     <title>Lebron</title>
 </head>
 <body>
-    <i id="måne" class="fa-solid fa-moon fa-4x" onclick="ToggleThemeD()"></i>
-    <i id="sol" class="fa-solid fa-sun fa-4x" onclick="ToggleThemeL()"></i>
-    <nav class="is-flex is-justify-content-center">
-        <ul>
-            <li><a href="index.html" class="button is-link is-large is-inverted">Lebron</a></li>
-            <li><a href="LeClicker.html" class="button is-link is-large">LeClicker</a></li>
-            <li><a href="LeForm.html" class="button is-link is-large">LeForm</a></li>
-            <li><a href="LeStats.html" class="button is-link is-large">LeStats</a></li>
-        </ul>
-    </nav>
+    <div class="columns is-multiline">
+        <div class="column is-1 is-offset-11 is-flex is-justify-content-center">
+            <i id="måne" class="fa-solid fa-moon fa-4x" onclick="ToggleThemeD()"></i>
+            <i id="sol" class="fa-solid fa-sun fa-4x" onclick="ToggleThemeL()"></i>
+        </div>
+        <div class="navbar column is-half is-offset-one-quarter">
+            <div class="navbar-brand">
+                
+            </div>
+            <div class="navbar-menu">
+                <div class="navbar-start">
+                    <div><a href="index.html" class="navbar-item button is-large is-primary is-outlined is-inverted">Lebron</a></div>
+                    <div><a href="LeClicker.html" class="navbar-item button is-large is-primary is-outlined">LeClicker</a></div>
+                    <div><a href="LeForm.html" class="navbar-item button is-large is-primary is-outlined">LeForm</a></div>
+                    <div><a href="LeStats.html" class="navbar-item button is-large is-primary is-outlined">LeStats</a></div>
+                </div>
+                <div class="navbar-end">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <div id="Lebron">
-        <img src="img/Lebron.png" alt="LeBron!">
+    <div id="Lebron columns">
+        <div class="column is-half">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequatur dolores dolore nam ex vero voluptates molestiae voluptatibus architecto quam deserunt aut repudiandae quasi et delectus, corrupti cum suscipit illum quisquam soluta officiis voluptas culpa est necessitatibus laborum. Est eaque repellat inventore pariatur perferendis qui itaque, laudantium minus, blanditiis soluta, dolorum nisi velit quis numquam dolorem hic! Nostrum, suscipit voluptas repudiandae reprehenderit at, deserunt iure delectus quod odit numquam ipsa cum eum modi eaque aliquam, hic reiciendis doloremque. Voluptates enim ipsa expedita dignissimos eligendi optio, molestias mollitia. Molestiae, excepturi, tempora laudantium blanditiis accusantium recusandae beatae error, maiores perferendis nemo architecto ipsam?</div>
+        <div class="column is-one-quarter">
+            <img src="img/Lebron.png" alt="LeBron!">
+        </div>
     </div>
 </body>
 </html>

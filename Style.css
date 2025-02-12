@@ -3,11 +3,10 @@ body{
     width: 100vw;
     margin: 0;
     padding: 0;
-}
-nav li{
-    float: left;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
-#sol{
+#måne{
     display: none;
 }

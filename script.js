@@ -1,14 +1,12 @@
-let html = document.getElementsByTagName('html')[0];
-let mane = document.getElementById('måne');
-let sol = document.getElementById('sol');
-
 function ToggleThemeD(){
-    html.classList.toggle('theme-dark');
-    mane.style.display = "none";
-    sol.style.display = "block";
+    let html = document.getElementsByTagName('html')[0];
+    html.classList.toggle('theme-light');
+    document.getElementById('måne').style.display = "none";
+    document.getElementById('sol').style.display = "block";
 }
 function ToggleThemeL(){
-    html.classList.toggle('theme-dark');
-    mane.style.display = "block";
-    sol.style.display = "none";
+    let html = document.getElementsByTagName('html')[0];
+    html.classList.toggle('theme-light');
+    document.getElementById('måne').style.display = "block";
+    document.getElementById('sol').style.display = "none";
 }

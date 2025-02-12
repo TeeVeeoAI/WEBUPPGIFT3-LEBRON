@@ -5,27 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
     <link rel="stylesheet" href="Style.css">
+    <script src="https://kit.fontawesome.com/5fa0058b85.js" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
     <title>LeStats</title>
 </head>
 <body>
-    <style>
-        body{
-            height: 100vh;
-            width: 100vw;
-            margin: 0;
-            padding: 0;
-        }
-        nav li{
-            float: left;
-        }
-    </style>
-    <nav class="is-flex is-justify-content-center">
-        <ul>
-            <li><a href="index.html" class="button is-link is-large">Lebron</a></li>
-            <li><a href="LeClicker.html" class="button is-link is-large">LeClicker</a></li>
-            <li><a href="LeForm.html" class="button is-link is-large">LeForm</a></li>
-            <li><a href="LeStats.html" class="button is-link is-large is-inverted">LeStats</a></li>
-        </ul>
-    </nav>
+    <div class="columns is-multiline">
+        <div class="column is-1 is-offset-11 is-flex is-justify-content-center">
+            <i id="måne" class="fa-solid fa-moon fa-4x" onclick="ToggleThemeD()"></i>
+            <i id="sol" class="fa-solid fa-sun fa-4x" onclick="ToggleThemeL()"></i>
+        </div>
+        <div class="navbar column is-half is-offset-one-quarter">
+            <div class="navbar-brand">
+                
+            </div>
+            <div class="navbar-menu">
+                <div class="navbar-start">
+                    <div><a href="index.html" class="navbar-item button is-large is-primary is-outlined">Lebron</a></div>
+                    <div><a href="LeClicker.html" class="navbar-item button is-large is-primary is-outlined">LeClicker</a></div>
+                    <div><a href="LeForm.html" class="navbar-item button is-large is-primary is-outlined">LeForm</a></div>
+                    <div><a href="LeStats.html" class="navbar-item button is-large is-primary is-outlined is-inverted">LeStats</a></div>
+                </div>
+                <div class="navbar-end">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
