@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="theme-dark">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,7 +23,7 @@
                 <div class="navbar-start">
                     <div><a href="index.html" class="navbar-item button is-large is-primary is-outlined">Lebron</a></div>
                     <div><a href="LeClicker.html" class="navbar-item button is-large is-primary is-outlined">LeClicker</a></div>
-                    <div><a href="LeForm.html" class="navbar-item button is-large is-primary is-outlined is-inverted">LeForm</a></div>
+                    <div><a href="LeForm.html" class="navbar-item button is-large is-primary is-outlined is-inverted is-active">LeForm</a></div>
                     <div><a href="LeStats.html" class="navbar-item button is-large is-primary is-outlined">LeStats</a></div>
                 </div>
                 <div class="navbar-end">
@@ -64,7 +64,7 @@
         <div class="field">
         <div class="control">
             <label class="checkbox">
-            <input type="checkbox">
+            <input type="checkbox" id="TAC" onclick="FormCheck()">
             I agree to the <a href="#">terms and conditions</a>
             </label>
         </div>
@@ -72,7 +72,7 @@
         
         <div class="field is-grouped">
         <div class="control">
-            <button type="submit" class="button is-link">Submit</button>
+            <button type="submit" class="button is-link" id="form" disabled>Submit</button>
         </div>
         </div>
     </form>

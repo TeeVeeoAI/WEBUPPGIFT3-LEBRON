@@ -10,3 +10,18 @@ body{
 #måne{
     display: none;
 }
+
+#Lebox{
+    height: 70vh;
+}
+
+#box{
+    height: 600px;
+    aspect-ratio: 3/2;
+}
+
+p{
+    position: absolute;
+    left: 550px;
+    bottom: 125px;
+}
