@@ -24,16 +24,22 @@ function FormCheck(){
 let score = 0;
 let add = 1;
 let multiply = 1;
-let price = [10, 100];
+let auto = 0;
+let price = [10, 100, 1000];
+let win1 = false;
+let win2 = false;
 
 function LebronClicker(){
     score += add * multiply;
     ScoreUpdate();
-    if(score == 100){
+
+    if(score >= 100 && !win1){
         alert('You win!!!!');
+        win1 = true;
     }
-    if(score == 1000){
-        alert('You extra win!!!! (Sponsore by Jetmir)')
+    if(score >= 1000 && !win2){
+        alert('You extra win!!!! (Sponsore by Jetmir)');
+        win2 = true;
     }
 }
 
@@ -44,7 +50,7 @@ function OnePlus(){
         price[0]++;
     }
     ScoreUpdate();
-    PriceUpdate();
+    PriceUpdate('labelOne', 0);
 }
 
 function MultiplyerPointOne(){
@@ -54,13 +60,35 @@ function MultiplyerPointOne(){
         price[1] += 10;
     }
     ScoreUpdate();
-    PriceUpdate();
+    PriceUpdate('labelTwo', 1);
+}
+
+function Auto(){
+    if (score >= price[2]){
+        auto++;
+        score -= price[2];
+        price[2] += 100;
+        AutoTwo();
+    }
+    ScoreUpdate();
+    PriceUpdate('labelThree', 2);
 }
 
 function ScoreUpdate(){
     document.getElementById('score').innerHTML = "score: " + Math.floor(score*10)/10;
 }
 
-function PriceUpdate(){
-    document.getElementById('onePlus').innerHTML = price[0] + pre
+function PriceUpdate(id, arrNum){
+    document.getElementById(id).innerHTML = price[arrNum] + " score:";
+}
+
+function AutoTwo(){
+    while (true){
+        setTimeout(AutoAdd(), 3000);
+        ScoreUpdate();
+    }
+}
+
+function AutoAdd(){
+    score += auto;
 }
