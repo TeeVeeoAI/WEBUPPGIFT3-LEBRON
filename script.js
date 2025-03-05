@@ -29,9 +29,12 @@ let price = [10, 100, 1000];
 let win1 = false;
 let win2 = false;
 
+setInterval(AutoAdd, 500);
+
 function LebronClicker(){
     score += add * multiply;
     ScoreUpdate();
+    AutoUpdate();
 
     if(score >= 100 && !win1){
         alert('You win!!!!');
@@ -65,13 +68,13 @@ function MultiplyerPointOne(){
 
 function Auto(){
     if (score >= price[2]){
-        auto++;
+        auto += 0.5;
         score -= price[2];
         price[2] += 100;
-        AutoTwo();
     }
     ScoreUpdate();
     PriceUpdate('labelThree', 2);
+    AutoUpdate();
 }
 
 function ScoreUpdate(){
@@ -82,13 +85,11 @@ function PriceUpdate(id, arrNum){
     document.getElementById(id).innerHTML = price[arrNum] + " score:";
 }
 
-function AutoTwo(){
-    while (true){
-        setTimeout(AutoAdd(), 3000);
-        ScoreUpdate();
-    }
+function AutoUpdate(){
+    document.getElementById('auto').innerHTML = "auto: " + auto*2 + " C/s";
 }
 
 function AutoAdd(){
     score += auto;
+    ScoreUpdate();
 }

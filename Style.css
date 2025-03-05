@@ -25,3 +25,12 @@ p{
     left: 550px;
     bottom: 125px;
 }
+
+#auto{
+    translate: 0 -25px;
+}
+
+.LeImg{
+    aspect-ratio: 3/2;
+    height: 200px;
+}
