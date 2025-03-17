@@ -30,7 +30,7 @@ let price = [10, 100, 1000, 10000];
 let priceIn = [1, 10, 100, 1000]
 let win1 = false;
 let win2 = false;
-let buy = 2;
+let buy = 1;
 
 setInterval(AutoAdd, 250);
 
@@ -96,7 +96,8 @@ function ScoreUpdate(){
 }
 
 function PriceUpdate(id, arrNum){
-    document.getElementById(id).innerHTML = (price[arrNum]*buy)+(priceIn[arrNum]*buy) + " Lebrons:";
+    document.getElementById(id).innerHTML = price[arrNum]*buy + 
+    (buy > 1 ? priceIn[arrNum]*(buy-1)+(priceIn[arrNum]*buy) : 0)  + " Lebrons:";
 }
 
 function AutoUpdate(){
@@ -112,7 +113,7 @@ function BuyOne(){
     document.getElementById('buyOne').classList = 'button is-success';
     document.getElementById('buyTwo').classList = 'button';
     document.getElementById('buyThree').classList = 'button';
-    buy = 1;
+    buy = 10;
     PriceUpdate('labelOne', 0);
     PriceUpdate('labelTwo', 1);
     PriceUpdate('labelThree', 2);
