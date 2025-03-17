@@ -10,7 +10,10 @@
     <title>LeStats</title>
 </head>
 <body>
-    <div class="columns is-multiline">
+    <div>
+        <img src="img/LeDunk.gif" alt="Ledunk" id="Ledunk" class="is-hidden">
+    </div>
+    <div class="columns is-multiline" id="else">
         <div class="column is-1 is-offset-11 is-flex is-justify-content-center">
             <i id="måne" class="fa-solid fa-moon fa-4x" onclick="ToggleThemeD()"></i>
             <i id="sol" class="fa-solid fa-sun fa-4x" onclick="ToggleThemeL()"></i>
@@ -60,6 +63,11 @@
         <div class="column">
             <img src="img/Lebron.png" alt="LeBron!">
         </div>
+    </div>
+
+
+    <div class="button is-danger is-inverted" onclick="LeDunk()" id="LedunkButton">
+        Lebron?
     </div>
 
 </body>

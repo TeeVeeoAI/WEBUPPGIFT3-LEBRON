@@ -11,6 +11,12 @@ function ToggleThemeL(){
     document.getElementById('sol').style.display = "none";
 }
 
+function LeDunk(){
+    document.getElementById('Ledunk').classList.toggle('is-hidden');
+    document.getElementById('else').classList.toggle('is-hidden');
+    document.getElementById('LeAudio').muted = document.getElementById('LeAudio').muted ? false : true;
+}
+
 function FormCheck(){
     if (document.getElementById('TAC').checked){
         document.getElementById('form').removeAttribute('disabled');
@@ -28,8 +34,7 @@ let auto = 0;
 let autoMulti = 1;
 let price = [10, 100, 1000, 10000];
 let priceIn = [1, 10, 100, 1000]
-let win1 = false;
-let win2 = false;
+let win = [false, false];
 let buy = 1;
 
 setInterval(AutoAdd, 250);
@@ -39,20 +44,24 @@ function LebronClicker(){
     ScoreUpdate();
     AutoUpdate();
 
-    if(score >= 100000 && !win1){
+    if(score >= 100000 && !win[0]){
         alert('You win!!!!');
-        win1 = true;
+        win[0] = true;
     }
-    if(score >= 1000000 && !win2){
+    if(score >= 1000000 && !win[0]){
         alert('You extra win!!!! (Sponsore by Jetmir)');
-        win2 = true;
+        win[0] = true;
     }
 }
 
 function OnePlus(){
-    if (score >= (price[0]*buy)+(priceIn[0]*buy)){
+    if (score >= (price[0]*buy +
+            ((buy == 5) ? priceIn[0]*buy+(priceIn[0]*buy) : 0) + 
+            ((buy == 10) ? (priceIn[0]*buy + (priceIn[0]*buy) * 3 + (priceIn[0]*buy/2)) : 0))){
         add += 1*buy;
-        score -= (price[0]*buy)+(priceIn[0]*buy);
+        score -= (price[0]*buy +
+            ((buy == 5) ? priceIn[0]*buy+(priceIn[0]*buy) : 0) + 
+            ((buy == 10) ? (priceIn[0]*buy + (priceIn[0]*buy) * 3 + (priceIn[0]*buy/2)) : 0));
         price[0] += priceIn[0]*buy;
     }
     ScoreUpdate();
@@ -60,9 +69,13 @@ function OnePlus(){
 }
 
 function MultiplyerPointOne(){
-    if (score >= (price[1]*buy)+(priceIn[1]*buy)){
+    if (score >= (price[1]*buy +
+            ((buy == 5) ? priceIn[1]*buy+(priceIn[1]*buy) : 0) + 
+            ((buy == 10) ? (priceIn[1]*buy + (priceIn[1]*buy) * 3 + (priceIn[1]*buy/2)) : 0))){
         multiply += 0.1*buy;
-        score -= (price[1]*buy)+(priceIn[1]*buy);
+        score -= (price[1]*buy +
+            ((buy == 5) ? priceIn[1]*buy+(priceIn[1]*buy) : 0) + 
+            ((buy == 10) ? (priceIn[1]*buy + (priceIn[1]*buy) * 3 + (priceIn[1]*buy/2)) : 0));
         price[1] += priceIn[1]*buy;
     }
     ScoreUpdate();
@@ -70,9 +83,13 @@ function MultiplyerPointOne(){
 }
 
 function Auto(){
-    if (score >= (price[2]*buy)+(priceIn[2]*buy)){
+    if (score >= (price[2]*buy +
+            ((buy == 5) ? priceIn[2]*buy+(priceIn[2]*buy) : 0) + 
+            ((buy == 10) ? (priceIn[2]*buy + (priceIn[2]*buy) * 3 + (priceIn[2]*buy/2)) : 0))){
         auto += 0.25*buy;
-        score -= (price[2]*buy)+(priceIn[2]*buy);
+        score -= (price[2]*buy +
+            ((buy == 5) ? priceIn[2]*buy+(priceIn[2]*buy) : 0) + 
+            ((buy == 10) ? (priceIn[2]*buy + (priceIn[2]*buy) * 3 + (priceIn[2]*buy/2)) : 0));
         price[2] += priceIn[2]*buy;
     }
     ScoreUpdate();
@@ -81,9 +98,13 @@ function Auto(){
 }
 
 function AutoMulti(){
-    if (score >= (price[3]*buy)+(1000*buy)){
+    if (score >= (price[3]*buy +
+            ((buy == 5) ? priceIn[3]*buy+(priceIn[3]*buy) : 0) + 
+            ((buy == 10) ? (priceIn[3]*buy + (priceIn[3]*buy) * 3 + (priceIn[3]*buy/2)) : 0))){
         autoMulti += 0.1*buy;
-        score -= (price[3]*buy)+(priceIn[3]*buy);
+        score -= (price[3]*buy +
+            ((buy == 5) ? priceIn[3]*buy+(priceIn[3]*buy) : 0) + 
+            ((buy == 10) ? (priceIn[3]*buy + (priceIn[3]*buy) * 3 + (priceIn[3]*buy/2)) : 0));
         price[3] += priceIn[3]*buy;
     }
     ScoreUpdate();
@@ -96,8 +117,10 @@ function ScoreUpdate(){
 }
 
 function PriceUpdate(id, arrNum){
-    document.getElementById(id).innerHTML = price[arrNum]*buy + 
-    (buy > 1 ? priceIn[arrNum]*(buy-1)+(priceIn[arrNum]*buy) : 0)  + " Lebrons:";
+    document.getElementById(id).innerHTML = price[arrNum]*buy +
+    ((buy == 5) ? priceIn[arrNum]*buy+(priceIn[arrNum]*buy) : 0) + 
+    ((buy == 10) ? (priceIn[arrNum]*buy + (priceIn[arrNum]*buy) * 3 + (priceIn[arrNum]*buy/2)) : 0)  + 
+    " Lebrons:";
 }
 
 function AutoUpdate(){
@@ -113,11 +136,12 @@ function BuyOne(){
     document.getElementById('buyOne').classList = 'button is-success';
     document.getElementById('buyTwo').classList = 'button';
     document.getElementById('buyThree').classList = 'button';
-    buy = 10;
+    buy = 1;
     PriceUpdate('labelOne', 0);
     PriceUpdate('labelTwo', 1);
     PriceUpdate('labelThree', 2);
     PriceUpdate('labelFour', 3);
+    LeUp();
 }
 
 function BuyTwo(){
@@ -129,7 +153,9 @@ function BuyTwo(){
     PriceUpdate('labelTwo', 1);
     PriceUpdate('labelThree', 2);
     PriceUpdate('labelFour', 3);
+    LeUp();
 }
+
 function BuyThree(){
     document.getElementById('buyOne').classList = 'button';
     document.getElementById('buyTwo').classList = 'button';
@@ -139,4 +165,12 @@ function BuyThree(){
     PriceUpdate('labelTwo', 1);
     PriceUpdate('labelThree', 2);
     PriceUpdate('labelFour', 3);
+    LeUp();
+}
+
+function LeUp(){
+    document.getElementById('onePlus').innerHTML = "+" + 1*buy + " Click";
+    document.getElementById('multiplyer').innerHTML = "+" + 0.1*buy + " Multiplyer";
+    document.getElementById('auto').innerHTML = "+" + 1*buy + " Auto";
+    document.getElementById('autoMulti').innerHTML = "+" + 0.1*buy + " Auto Multiplyer";
 }
