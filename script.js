@@ -18,12 +18,7 @@ function LeDunk(){
 }
 
 function FormCheck(){
-    if (document.getElementById('TAC').checked){
-        document.getElementById('form').removeAttribute('disabled');
-    }
-    else {
-        document.getElementById('form').setAttribute('disabled', true)
-    }
+    document.getElementById('form').disabled = document.getElementById('TAC').checked ? false : true;
 }
 
 //LeClicker
@@ -38,6 +33,8 @@ let win = [false, false];
 let buy = 1;
 
 setInterval(AutoAdd, 250);
+Load();
+
 
 function LebronClicker(){
     score += add * multiply;
@@ -114,6 +111,7 @@ function AutoMulti(){
 
 function ScoreUpdate(){
     document.getElementById('score').innerHTML = "Lebrons: " + Math.floor(score*10)/10;
+    Save();
 }
 
 function PriceUpdate(id, arrNum){
@@ -173,4 +171,41 @@ function LeUp(){
     document.getElementById('multiplyer').innerHTML = "+" + 0.1*buy + " Multiplyer";
     document.getElementById('auto').innerHTML = "+" + 1*buy + " Auto";
     document.getElementById('autoMulti').innerHTML = "+" + 0.1*buy + " Auto Multiplyer";
+    Save();
+}
+
+function Save(){
+    localStorage.setItem('score', JSON.stringify(score));
+    localStorage.setItem('add', JSON.stringify(add));
+    localStorage.setItem('multiply', JSON.stringify(multiply));
+    localStorage.setItem('auto', JSON.stringify(auto));
+    localStorage.setItem('autoMulti', JSON.stringify(autoMulti));
+    localStorage.setItem('win', JSON.stringify(win));
+}
+
+function Load(){
+    localStorage.getItem('score') == null ? 0 : score = JSON.parse(localStorage.getItem('score'));
+    localStorage.getItem('add') == null ? 1 : add = JSON.parse(localStorage.getItem('add'));
+    localStorage.getItem('multiply') == null ? 1 : multiply = JSON.parse(localStorage.getItem('multiply'));
+    localStorage.getItem('auto') == null ? 0 : auto = JSON.parse(localStorage.getItem('auto'));
+    localStorage.getItem('autoMulti') == null ? 1 : autoMulti = JSON.parse(localStorage.getItem('autoMulti'));
+    localStorage.getItem('win') == null ? [false, false] : win = JSON.parse(localStorage.getItem('win'));
+}
+
+function Reset(){
+    localStorage.removeItem('score');
+    localStorage.removeItem('add');
+    localStorage.removeItem('multiply');
+    localStorage.removeItem('auto');
+    localStorage.removeItem('autoMulti');
+    localStorage.removeItem('win');
+    score = 0;
+    add = 1;
+    multiply = 1;
+    auto = 0;
+    autoMulti = 1;
+    price = [10, 100, 1000, 10000];
+    priceIn = [1, 10, 100, 1000]
+    win = [false, false];
+    buy = 1;
 }
