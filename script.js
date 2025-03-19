@@ -32,11 +32,15 @@ let priceIn = [1, 10, 100, 1000]
 let win = [false, false];
 let buy = 1;
 
-setInterval(AutoAdd, 250);
 Load();
+setInterval(AutoAdd, 250);
 
 
 function LebronClicker(){
+    PriceUpdate('labelOne', 0);
+    PriceUpdate('labelTwo', 1);
+    PriceUpdate('labelThree', 2);
+    PriceUpdate('labelFour', 3);
     score += add * multiply;
     ScoreUpdate();
     AutoUpdate();
@@ -181,6 +185,7 @@ function Save(){
     localStorage.setItem('auto', JSON.stringify(auto));
     localStorage.setItem('autoMulti', JSON.stringify(autoMulti));
     localStorage.setItem('win', JSON.stringify(win));
+    localStorage.setItem('price', JSON.stringify(price));
 }
 
 function Load(){
@@ -190,6 +195,7 @@ function Load(){
     localStorage.getItem('auto') == null ? 0 : auto = JSON.parse(localStorage.getItem('auto'));
     localStorage.getItem('autoMulti') == null ? 1 : autoMulti = JSON.parse(localStorage.getItem('autoMulti'));
     localStorage.getItem('win') == null ? [false, false] : win = JSON.parse(localStorage.getItem('win'));
+    localStorage.getItem('price') == null ? [10, 100, 1000, 10000] : price = JSON.parse(localStorage.getItem('price'));
 }
 
 function Reset(){
@@ -199,6 +205,7 @@ function Reset(){
     localStorage.removeItem('auto');
     localStorage.removeItem('autoMulti');
     localStorage.removeItem('win');
+    localStorage.removeItem('price');
     score = 0;
     add = 1;
     multiply = 1;
@@ -208,4 +215,5 @@ function Reset(){
     priceIn = [1, 10, 100, 1000]
     win = [false, false];
     buy = 1;
+    price = [10, 100, 1000, 10000];
 }
